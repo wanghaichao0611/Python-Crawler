@@ -4,8 +4,8 @@ import zipfile
 import requests
 import pymysql
 import pdfkit
-import lib.function.common as common
-import lib.constant.globals as constant
+import common.function.common as common
+import common.constant.globals as constant
 from model.entity import PageCard
 from dotenv import load_dotenv
 from selenium import webdriver
@@ -61,7 +61,7 @@ def get_download_pdf_github(data_list):
             print(zip_file_path)
             if not os.path.exists(zip_file_path):
                 os.makedirs(zip_file_path)
-            driver.get(data.pdf_url)
+            driver.get(data.paper_url)
             time.sleep(2)
             wait = WebDriverWait(driver, 10)
             wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'paper-abstract')))

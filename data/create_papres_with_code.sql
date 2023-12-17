@@ -6,6 +6,7 @@ CREATE TABLE `papers_with_code`
     `title`       varchar(1000)                                           DEFAULT NULL COMMENT '标题',
     `content`     varchar(2000)                                           DEFAULT NULL COMMENT '简要',
     `star`        varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT 'star',
+    `paper_url`   varchar(500)                                            DEFAULT NULL COMMENT 'paper_url',
     `pdf_url`     varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT 'pdf_url',
     `github_url`  varchar(500)                                            DEFAULT NULL COMMENT 'github_url',
     `date`        varchar(100)                                            DEFAULT NULL COMMENT 'date',

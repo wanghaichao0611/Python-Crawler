@@ -3,7 +3,7 @@ import pymysql
 import os
 import shutil
 import pymysql
-import lib.constant.globals as constant
+import common.constant.globals as constant
 from conf.settings import DATABASES
 
 seq = 0
@@ -79,7 +79,8 @@ def truncate_and_insert_info_mysql(data_list):
     sql_list = []
     for data in data_list:
         sql_list.append(
-            (data.id, data.title, data.content, data.star, data.pdf_url, data.github_url, data.date, data.create_time))
+            (data.id, data.title, data.content, data.star, data.paper_url, data.pdf_url, data.github_url, data.date,
+             data.create_time))
     try:
         cursor.execute(constant.TRUNCATE_PAPERS_WINT_CODE_SQL)
         cursor.executemany(constant.BATCH_INSET_PAPERS_WINT_CODE_SQL, sql_list)

@@ -1,7 +1,7 @@
 # FieFox Example
 import os
-import lib.constant.globals as constant
-import lib.function.common as common
+import common.constant.globals as constant
+import common.function.common as common
 from model.entity import PageCard
 from dotenv import load_dotenv
 from selenium import webdriver
@@ -28,7 +28,7 @@ def get_data_list_from_page():
         # 1. Start driver
         driver.get(firefox_main_url)
         driver.maximize_window()
-        driver.execute_script(constant.SCROLL_JS)
+        driver.execute_script(constant.PAPERS_SCROLL_JS)
 
         wait = WebDriverWait(driver, 10)
         wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'home-page')))
@@ -41,10 +41,10 @@ def get_data_list_from_page():
             title = card_left.find_element(By.TAG_NAME, 'a')
             print('title: ' + title.text)
             pdf_link = card_right.find_element(By.CSS_SELECTOR, '.badge.badge-light ')
-            pdf_url = pdf_link.get_attribute('href')
+            paper_url = pdf_link.get_attribute('href')
             content = card_left.find_element(By.CLASS_NAME, 'item-strip-abstract').text
             star = card_right.find_element(By.CSS_SELECTOR, '.badge.badge-secondary').text
-            print('pdf_url: ' + pdf_url)
+            print('paper_url: ' + paper_url)
             author = card_left.find_element(By.CLASS_NAME, 'author-section')
             github_link = author.find_element(By.CLASS_NAME, 'item-github-link').find_element(By.TAG_NAME, 'a')
             github_url = github_link.get_attribute('href')
@@ -55,8 +55,9 @@ def get_data_list_from_page():
             else:
                 date = author.find_element(By.CLASS_NAME, 'item-conference-link').find_element(By.TAG_NAME, 'a').text
 
-            card_list.append(PageCard(common.gen_uuid(), title.text, content, star, pdf_url, github_url, date,
-                                      constant.NOW_TIME))
+            card_list.append(
+                PageCard(common.gen_uuid(), title.text, content, star, paper_url, None, github_url, date,
+                         constant.NOW_TIME))
     except Exception as err:
         print(err)
     finally:

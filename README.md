@@ -17,7 +17,7 @@ Python-Crawler:
 	|--docs      -- pdf,word,md
 	|--env       -- environment.env
 	|--example   -- example: other projects examples
-	|--lib       -- common.py
+	|--common     -- common.py
 	|--log       -- log.log
 	|--model     -- entity.py
 	|--out       -- output: something

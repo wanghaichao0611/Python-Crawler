@@ -1,10 +1,11 @@
 # Papers_with_code
 class PageCard:
-    def __init__(self, id, title, content, star, pdf_url, github_url, date, create_time):
+    def __init__(self, id, title, content, star, paper_url, pdf_url, github_url, date, create_time):
         self.id = id
         self.title = title
         self.content = content
         self.star = star
+        self.paper_url = paper_url
         self.pdf_url = pdf_url
         self.github_url = github_url
         self.date = date
@@ -17,7 +18,7 @@ class PageCard:
     def db_json_list_to_entity(paras_list):
         data_lsit = []
         for data in paras_list:
-            data_lsit.append(PageCard(data['id'], data['title'], data['content'], data['star'],
+            data_lsit.append(PageCard(data['id'], data['title'], data['content'], data['star'], data['paper_url'],
                                       data['pdf_url'], data['github_url'], data['date'], data['create_time']))
         return data_lsit
 

@@ -1,7 +1,7 @@
 # Edge Example
 import time
 import os
-import lib.constant.globals as constant
+import common.constant.globals as constant
 from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.common.by import By
