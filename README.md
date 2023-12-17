@@ -1,8 +1,10 @@
 # Python-Crawler
 
 This is a learning document about Python web crawlers, which includes two parts: learning examples and practical
-operations. This project will involve web crawlers, big data, and artificial intelligence. Please regulate your own
-operations and do not maliciously attack other people's web pages. We hope everyone can learn something from it.
+operations. This project will involve web crawlers, big self, and artificial intelligence. Please regulate your own
+operations and do not maliciously attack other people's web pages.When you need to crawl a webpage, please add/robots.
+txt after the URL and follow the crawling protocol rules. We hope everyone can learn something from it.
+robots.txt
 
 ## Directory Catalog
 
@@ -12,7 +14,7 @@ Python-Crawler:
 	|--bin       -- start.py
 	|--conf      -- settings.py
 	|--core      -- code.py
-	|--data      -- db/cache: data/sql
+	|--self      -- db/cache: self/sql
 	|--docs      -- pdf,word,md
 	|--env       -- environment.env
 	|--example   -- example: other projects examples
@@ -20,6 +22,7 @@ Python-Crawler:
 	|--log       -- log.log
 	|--model     -- entity.py
 	|--out       -- output: something
+	|--scripts   -- ptthon jdk: *.exe
 	|--setup     -- setup: Scripts for installation, deployment, and packaging
 	|--test      -- test.py
 	|--quirements.txt
