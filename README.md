@@ -4,7 +4,6 @@ This is a learning document about Python web crawlers, which includes two parts:
 operations. This project will involve web crawlers, big self, and artificial intelligence. Please regulate your own
 operations and do not maliciously attack other people's web pages.When you need to crawl a webpage, please add/robots.
 txt after the URL and follow the crawling protocol rules. We hope everyone can learn something from it.
-robots.txt
 
 ## Directory Catalog
 
