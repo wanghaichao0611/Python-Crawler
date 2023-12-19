@@ -3,6 +3,7 @@ import os
 import shutil
 import pymysql
 import lib.constant.globals as constant
+import matplotlib.pyplot as plt
 from conf.settings import DATABASES
 
 seq = 0
@@ -85,3 +86,8 @@ def truncate_and_insert_info_mysql(data_list):
     finally:
         cursor.close()
         conn.close()
+
+
+# adjust screen
+def adjust_plt():
+    plt.subplots_adjust(left=0.079, bottom=0.171, right=0.962, top=0.906, wspace=0.2, hspace=0.2)
