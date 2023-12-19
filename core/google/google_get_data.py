@@ -2,8 +2,8 @@
 import os
 import time
 import pandas as pd
-import common.constant.globals as constant
-import common.function.common as common
+import lib.constant.globals as constant
+import lib.function.common as common
 from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.common.by import By

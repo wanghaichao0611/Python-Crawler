@@ -17,7 +17,7 @@ Python-Crawler:
 	|--docs      -- pdf,word,md
 	|--env       -- environment.env
 	|--example   -- example: other projects examples
-	|--common     -- common.py
+	|--lib     -- common.py
 	|--log       -- log.log
 	|--model     -- entity.py
 	|--out       -- output: something
@@ -40,7 +40,7 @@ Start a Python-Crawler with a command
 1. pip install -r requirements.txt
 ```
 
-2. You need to download MySQL data
+2. You need to download MySQL 
 3. Execute MySQL table creation statement
 4. Copy the files in the scripts' directory to Python/Scripts
 5. Execute Python files under the core package

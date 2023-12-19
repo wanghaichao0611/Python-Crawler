@@ -3,18 +3,15 @@ import time
 import zipfile
 import requests
 import pymysql
-import pdfkit
-import common.function.common as common
-import common.constant.globals as constant
+import lib.function.common as common
+import lib.constant.globals as constant
 from model.entity import PageCard
 from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from bs4 import BeautifulSoup
 
-WKHTMLTOPDF_PATH = '../../bin/wkhtmltopdf.exe'
 load_dotenv(dotenv_path="../../env/study.env", override=True)
 
 firefox_output_folder = os.environ.get('firefox_output_folder')
@@ -71,31 +68,6 @@ def get_download_pdf_github(data_list):
             # change real pdf url for selecting repository
             data.pdf_url = pdf_url
             driver.get(pdf_url)
-            # response_pdf = requests.get(pdf_url)
-            # print(response_pdf)
-            # driver.get(pdf_url)
-            # try:
-            #     soup = BeautifulSoup(driver.page_source, 'html.parser')
-            #     modified_html = f"""
-            #            <html>
-            #            <head>
-            #                <style>
-            #                    font-family: Arial, sans-serif;
-            #                    {common.getStyleCss()}
-            #                </style>
-            #            </head>
-            #            <body>
-            #                {str(soup)}
-            #            </body>
-            #            </html>
-            #        """
-            #
-            #     path_wkhtmltopdf = WKHTMLTOPDF_PATH
-            #     pdfkit.from_string(modified_html, zip_file_path + '/' + catalog + '.pdf',
-            #                        configuration=pdfkit.configuration(wkhtmltopdf=path_wkhtmltopdf),
-            #                        options={'encoding': 'utf-8'})
-            # except:
-            #     print('Download papers pdf failed')
             print(data.github_url + github_master_download_end_url)
             print('Download github-master-zip loading ......')
             response_github = requests.get(data.github_url + github_master_download_end_url)

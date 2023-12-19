@@ -1,7 +1,7 @@
 # FieFox Example
 import os
-import common.constant.globals as constant
-import common.function.common as common
+import lib.constant.globals as constant
+import lib.function.common as common
 from model.entity import PageCard
 from dotenv import load_dotenv
 from selenium import webdriver
