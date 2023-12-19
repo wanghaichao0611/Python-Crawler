@@ -24,6 +24,7 @@ def main():
     driver = webdriver.Chrome(options=chrome_options)
     driver.maximize_window()
     driver.get(google_main_url)
+    time.sleep(3)
     category_list = driver.find_elements(By.CSS_SELECTOR, '.ScCoreLink-sc-16kq0mq-0.eFqEFL.game-card__link.tw-link')
 
     url_list = set()
@@ -63,7 +64,7 @@ def main():
                     split_category = split_category + category_video.text + ','
 
                 print(
-                    'author_name: ' + author_name + ' | author_url |' + author_url + ' | split_category |' + split_category)
+                    'author_name: ' + author_name + ' | author_url | ' + author_url + ' | split_category | ' + split_category)
 
                 content = article_list[index].find_element(By.CSS_SELECTOR, '.ScTransformWrapper-sc-1wvuch4-1.iXjpwc')
                 video_link = content.find_element(
@@ -73,9 +74,9 @@ def main():
                 img = video_user.find_element(By.CLASS_NAME, 'tw-image')
                 title = img.get_attribute('alt')
                 save_screen = img.get_attribute('src')
-                peoples = video_link.find_element(By.CSS_SELECTOR,
-                                                  '.ScMediaCardStatWrapper-sc-anph5i-0.jRUNHm.tw-media-card-stat').text
-                print('online_url:' + online_url + ' | title | ' + title
+                peoples = video_link.find_element(By.CSS_SELECTOR, '.ScMediaCardStatWrapper-sc-anph5i-0'
+                                                                   '.jRUNHm.tw-media-card-stat').text.split(' ')[0]
+                print('online_url: ' + online_url + ' | title | ' + title
                       + '| save_screen | ' + save_screen + ' | peoples | ' + peoples)
 
                 pd_author_name.append(author_name)
@@ -85,7 +86,10 @@ def main():
                 pd_online_url.append(online_url)
                 pd_title.append(title)
                 pd_save_screen.append(save_screen)
-                pd_peoples.append(peoples)
+                if peoples.endswith('万'):
+                    pd_peoples.append(float(peoples.replace('万', '').strip()) * 10000)
+                else:
+                    pd_peoples.append(peoples.replace(',', '').strip())
 
     excel = pd.DataFrame({
         'category_url': pd_url,
