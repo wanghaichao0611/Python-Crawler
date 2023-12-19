@@ -33,7 +33,7 @@ def main():
     pd_url = []
     pd_category = []
     pd_author_name = []
-    pd_author_url = []
+    pd_author_avatar_url = []
     pd_author_videos = []
     pd_split_category = []
     pd_online_url = []
@@ -79,7 +79,7 @@ def main():
                       + '| save_screen | ' + save_screen + ' | peoples | ' + peoples)
 
                 pd_author_name.append(author_name)
-                pd_author_url.append(author_url)
+                pd_author_avatar_url.append(author_url)
                 pd_author_videos.append('https://www.twitch.tv/' + author_name + '/videos')
                 pd_split_category.append(split_category)
                 pd_online_url.append(online_url)
@@ -91,7 +91,7 @@ def main():
         'category_url': pd_url,
         'category': pd_category,
         'author_name': pd_author_name,
-        'author_url': pd_author_url,
+        'author_avatar_url': pd_author_avatar_url,
         'author_videos': pd_author_videos,
         'split_category': pd_split_category,
         'online_url': pd_online_url,
