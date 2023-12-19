@@ -12,7 +12,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-load_dotenv(dotenv_path="../../env/study.env", override=True)
+load_dotenv(dotenv_path="../../env/learning.env", override=True)
 
 firefox_output_folder = os.environ.get('firefox_output_folder')
 github_master_download_end_url = os.environ.get('github_master_download_end_url')

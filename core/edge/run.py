@@ -1,4 +1,4 @@
-# Edge Example
+# Edge learning
 import time
 import os
 import lib.constant.globals as constant
@@ -9,14 +9,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 
-load_dotenv(dotenv_path="../../env/study.env", override=True)
+load_dotenv(dotenv_path="../../env/learning.env", override=True)
 
 edge_main_url = os.environ.get('edge_main_url')
-
-"""
-  You can click F12 from pages,that can get require element-id class and css (first floor element)
-  Then: Imitate human operation of web pages
-  """
 
 
 def main():

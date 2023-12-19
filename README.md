@@ -40,7 +40,7 @@ Start a Python-Crawler with a command
 1. pip install -r requirements.txt
 ```
 
-2. You need to download MySQL 
-3. Execute MySQL table creation statement
-4. Copy the files in the scripts' directory to Python/Scripts
+2. You need to download MySQL
+3. Execute MySQL table creation statement from ../data/*.sql
+4. Copy the files in the scripts' directory to Python/Scripts/
 5. Execute Python files under the core package

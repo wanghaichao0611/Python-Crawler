@@ -1,4 +1,4 @@
-# Google Example
+# Google learning
 import os
 import time
 import pandas as pd
@@ -10,7 +10,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-load_dotenv(dotenv_path="../../env/study.env", override=True)
+load_dotenv(dotenv_path="../../env/learning.env", override=True)
 
 google_main_url = os.environ.get('google_main_url')
 
