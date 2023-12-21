@@ -25,16 +25,19 @@ docs = [
 ]
 
 
+# send elasticsearch for a test
 def send_data_test(data_list):
     bulk(es, data_list)
     print('send test successfully')
 
 
+# read local json file
 def read_data_list(json_path):
     with open(json_path, 'r') as f:
         return json.load(f)
 
 
+# send data to elasticsearch
 def send_data_to_elasticsearch(data_list, index):
     docs = []
     for data in data_list:
@@ -42,10 +45,12 @@ def send_data_to_elasticsearch(data_list, index):
             '_index': 'reddit_top_year',
             '_source': data})
 
+    # batch into elasticsearch
     bulk(es, docs)
     print('send data to elasticsearch successfully')
 
 
+# get dta from elasticsearch with query
 def get_data_from_elasticsearch(index, words):
     query = {
         "query": {
@@ -56,6 +61,7 @@ def get_data_from_elasticsearch(index, words):
     print(value)
 
 
+# main
 if __name__ == '__main__':
     # send_data_test(docs)
     # get_data_from_elasticsearch('reddit_top_year', 'happy')

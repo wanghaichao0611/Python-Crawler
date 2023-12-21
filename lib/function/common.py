@@ -26,7 +26,7 @@ def gen_uuid():
     if last_timestamp > timestamp:
         raise ValueError("Clock moved backwards. Refusing to generate id")
     if last_timestamp == timestamp:
-        seq = (seq + 1) & 0xFFF  # 4095
+        seq = (seq + 1) & 0xFFF
         if seq == 0:
             timestamp = til_next_millis(last_timestamp)
     else:

@@ -9,7 +9,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-WKHTMLTOPDF_PATH = '../../bin/wkhtmltopdf.exe'
 load_dotenv(dotenv_path="../../env/learning.env", override=True)
 
 reddit_genshin_impact_url = os.environ.get('reddit_genshin_impact_url')
@@ -20,6 +19,7 @@ def main():
     print('Start Reddit')
     chrome_options = webdriver.ChromeOptions()
 
+    # prohibit images loading
     prefs = {
         'profile.default_content_setting_values': {
             'images': 2,
@@ -61,6 +61,7 @@ def main():
     return data_list
 
 
+# main
 if __name__ == '__main__':
     data_list = main()
     if len(data_list) > 0:
