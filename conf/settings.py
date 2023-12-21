@@ -6,5 +6,8 @@ DATABASES = {
         'password': 'whc19970611',
         'database': 'python',
         'charset': 'utf8',
+    },
+    'elasticsearch': {
+        'host': 'http://localhost:9200'
     }
 }
