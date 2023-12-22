@@ -1,9 +1,13 @@
 import json
+import os
+from dotenv import load_dotenv
 from conf.settings import DATABASES
 from elasticsearch import Elasticsearch
 from elasticsearch.helpers import bulk
 
+load_dotenv(dotenv_path="../../env/learning.env", override=True)
 es = Elasticsearch(hosts=DATABASES.get('elasticsearch').get('host'))
+reddit_into_file = os.environ.get('reddit_into_file')
 
 docs = [
     {
@@ -66,4 +70,4 @@ if __name__ == '__main__':
     # send_data_test(docs)
     # get_data_from_elasticsearch('reddit_top_year', 'happy')
     # es.indices.delete(index='reddit_top_year')
-    send_data_to_elasticsearch(read_data_list('../../out/reddit/genshin_impact_top.json'), 'reddit_top_year')
+    send_data_to_elasticsearch(read_data_list('../../out/reddit/' + reddit_into_file), 'reddit_top_year')

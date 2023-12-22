@@ -25,7 +25,7 @@ def main():
     plt.title('Twitch Top Online', fontsize=20)
     common.adjust_plt()
     plt.xticks(rotation=45, ha='right')
-    plt.savefig('../../out/google/TopPeoples.pdf')
+    plt.savefig('../../out/google/TopPeoples.pdf', dpi=200, bbox_inches='tight')
     plt.show()
 
 
