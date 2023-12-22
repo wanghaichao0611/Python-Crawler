@@ -1,14 +1,17 @@
 {
   "Lead-主角": [
+    "Father",
+    "Mother",
+    "Daddy",
     "Aether",
     "Lumine",
     "Paimon",
     "Genshin Impact",
     "Mihoyo",
     "Hoyoverse",
-    "f2p",
+    "F2p",
     "Aloy",
-    "cosplay",
+    "Cosplay",
     "Fuck"
   ],
   "Element-元素和无相": [
@@ -117,7 +120,7 @@
     "Arlecchino",
     "Tartaglia"
   ],
-  "boss-周本": [
+  "Boss-周本": [
     "Stormterror",
     "Andrius",
     "Childe",
@@ -127,7 +130,7 @@
     "Prodigal",
     "Oasis"
   ],
-  "mapBoss-地图Boss": [
+  "MapBoss-地图Boss": [
     "Electro",
     "Anemo",
     "Geo",
