@@ -31,13 +31,13 @@ def main(title, link):
         # Youtube video URL
         yt = YouTube(link)
 
-        print("Title:", yt.title)
-        print("Author:", yt.author)
-        print("Published date:", yt.publish_date)
-        print("Number of views:", yt.views)
-        print("Length of video:", yt.length, "seconds")
+        print("Title: ", yt.title)
+        print("Author: ", yt.author)
+        print("Published date: ", yt.publish_date)
+        print("Number of views: ", yt.views)
+        print("Length of video: ", yt.length, "seconds")
         yt.streams.get_highest_resolution().download(youtube_out_file)
-        print("The Video downloaded from successfully", link)
+        print("The Video downloaded successfully: ", link)
     except:
         pass
 
