@@ -21,11 +21,11 @@ def main():
     #     plt.text(x=row['author_name'], y=row['peoples'], s=str(row['peoples']),
     #              color='black', fontsize=12, style='normal', ha='center')
     # data.plot.bar(x='author_name', rot=0, edgecolor='grey', colormap='rainbow')
-    sns.barplot(data_temp, x="author_name", y='peoples', hue='author_name', saturation=0.2)
-    plt.title('Twitch Top Online', fontsize=20)
+    sns.barplot(data_temp, x="peoples", y='author_name', hue='author_name', saturation=0.2)
+    plt.title('Twitch Top-20 Online', fontsize=20)
     common.adjust_plt()
-    plt.xticks(rotation=45, ha='right')
-    plt.savefig('../../out/google/TopPeoples.pdf', dpi=200, bbox_inches='tight')
+    #plt.xticks(rotation=45, ha='right')
+    plt.savefig('../../out/google/TopPeoples.jpg', dpi=200, bbox_inches='tight')
     plt.show()
 
 

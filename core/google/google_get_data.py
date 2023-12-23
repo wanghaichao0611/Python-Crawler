@@ -25,12 +25,15 @@ def main():
     driver.maximize_window()
     driver.get(google_main_url)
     time.sleep(3)
+    driver.execute_script(constant.PAPERS_SCROLL_JS)
+    time.sleep(3)
     category_list = driver.find_elements(By.CSS_SELECTOR, '.ScCoreLink-sc-16kq0mq-0.eFqEFL.game-card__link.tw-link')
 
     url_list = set()
     for category in category_list:
         url_list.add(category.get_attribute('href'))
 
+    print(len(category_list))
     pd_url = []
     pd_category = []
     pd_author_name = []
@@ -45,6 +48,8 @@ def main():
         print(url)
         time.sleep(1)
         driver.get(url + '?sort=VIEWER_COUNT')
+        time.sleep(3)
+        driver.execute_script(constant.PAPERS_SCROLL_JS)
         wait = WebDriverWait(driver, 10)
         wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, '.Layout-sc-1xcs6mc-0.jivRFd')))
         article_list = driver.find_elements(By.CSS_SELECTOR, '.Layout-sc-1xcs6mc-0.jivRFd')

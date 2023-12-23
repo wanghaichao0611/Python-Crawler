@@ -13,3 +13,5 @@ scipy>=1.11.4
 seaborn>=0.13.0
 elasticsearch>=8.11.1
 urllib3>=2.1.0
+numpy>=1.26.2
+pytube>=15.0.0

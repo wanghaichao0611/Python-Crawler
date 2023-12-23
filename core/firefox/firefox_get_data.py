@@ -1,5 +1,6 @@
 # FieFox learning
 import os
+import time
 import lib.constant.globals as constant
 import lib.function.common as common
 from model.entity import PageCard
@@ -23,7 +24,11 @@ def get_data_list_from_page():
         # 1. Start driver
         driver.get(firefox_main_url)
         driver.maximize_window()
-        driver.execute_script(constant.PAPERS_SCROLL_JS)
+        next_count = 0
+        while next_count < 10:
+            driver.execute_script(constant.PAPERS_SCROLL_JS)
+            time.sleep(3)
+            next_count += 1
 
         wait = WebDriverWait(driver, 10)
         wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'home-page')))

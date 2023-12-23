@@ -53,7 +53,9 @@ def get_download_pdf_github(data_list):
     driver.maximize_window()
     try:
         for data in data_list:
-            catalog = str(data.title).split(':')[0].strip()
+            # catalog = str(data.title).split(':')[0].strip().replace('\\','')
+            catalog = str(data.paper_url).strip().split('/')[-1]
+            print('catalog; ' + catalog)
             zip_file_path = firefox_output_folder + catalog
             print(zip_file_path)
             if not os.path.exists(zip_file_path):
