@@ -25,7 +25,7 @@ def get_data_list_from_page():
         driver.get(firefox_main_url)
         driver.maximize_window()
         next_count = 0
-        while next_count < 10:
+        while next_count < 20:
             driver.execute_script(constant.PAPERS_SCROLL_JS)
             time.sleep(3)
             next_count += 1
