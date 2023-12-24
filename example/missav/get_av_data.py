@@ -11,7 +11,7 @@ av_fc2_url = os.environ.get('av_fc2_url')
 av_video_path = os.environ.get('av_video_path')
 
 
-# clear files
+# clear files and dirs
 def clear_files(folder_path):
     try:
         for root, dirs, files in os.walk(folder_path):
@@ -19,6 +19,7 @@ def clear_files(folder_path):
                 file_path = os.path.join(root, file)
                 os.remove(file_path)
 
+        for root, dirs, files in os.walk(folder_path):
             for dir in dirs:
                 dir_path = os.path.join(root, dir)
                 os.rmdir(dir_path)
