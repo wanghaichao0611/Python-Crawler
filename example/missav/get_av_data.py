@@ -23,7 +23,7 @@ def clear_files(folder_path):
             for dir in dirs:
                 dir_path = os.path.join(root, dir)
                 os.rmdir(dir_path)
-        print(f"success: {folder_path}")
+        print(f"Clear files and dirs successfully: {folder_path}")
     except Exception as e:
         print(f"{folder_path} error：{str(e)}")
 
