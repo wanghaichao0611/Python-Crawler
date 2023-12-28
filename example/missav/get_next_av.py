@@ -43,6 +43,7 @@ def main():
     data_list = []
     for data in common.read_data_list('../../out/missav/fc2/fc2.json'):
         driver.get(av_main_cn + data['video_id'])
+        time.sleep(1)
         soup = BeautifulSoup(driver.page_source, 'html.parser')
         thu = str(soup.findAll('script', {'type': 'text/javascript'})[2])
         index = thu.find('urls')
