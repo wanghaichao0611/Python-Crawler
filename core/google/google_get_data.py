@@ -94,7 +94,7 @@ def main():
                 if peoples.endswith('万'):
                     pd_peoples.append(float(peoples.replace('万', '').strip()) * 10000)
                 else:
-                    pd_peoples.append(peoples.replace(',', '').strip())
+                    pd_peoples.append(float(peoples.replace(',', '').strip()))
 
     excel = pd.DataFrame({
         'category_url': pd_url,
