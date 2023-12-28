@@ -17,6 +17,7 @@ av_picture = os.environ.get('av_picture')
 
 
 def download_ts(download_url, write_url):
+    print('Downloading: ' + download_url)
     response = requests.get(download_url)
     if response.status_code == 200:
         with open(write_url, 'wb') as r:
