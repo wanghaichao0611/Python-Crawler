@@ -4,7 +4,7 @@ import multiprocessing as mp
 import lib.function.common as common
 
 
-# download and write
+# download and write or [{'key':'1'},{'key':'2'] and [1,2.3.4.5.6]
 # def download_ts(data):
 #     print('Downloading: ' + data['download_url'])
 #     response = requests.get(data['download_url'])
