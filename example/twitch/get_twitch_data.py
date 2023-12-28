@@ -32,6 +32,8 @@ def get_author_information():
         img_link = text.find_element(By.TAG_NAME, 'img')
         img_title = img_link.get_attribute('title')
         img_src = img_link.get_attribute('src')
+        if img_src.find(twitch_user) == -1:
+            continue
         video_time = text.find_element(By.CSS_SELECTOR,
                                        '.ScMediaCardStatWrapper-sc-anph5i-0.jRUNHm.tw-media-card-stat').text
         print('video_author: ' + twitch_user)
