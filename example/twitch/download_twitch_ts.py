@@ -5,6 +5,7 @@ import lib.function.common as common
 
 # download and write
 def download_ts(data):
+    print('Downloading: ' + data['download_url'])
     response = requests.get(data['download_url'])
     if response.status_code == 200:
         with open(data['write_url'], 'wb') as r:
