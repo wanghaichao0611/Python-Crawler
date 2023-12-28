@@ -55,7 +55,7 @@ def get_author_information():
         if not os.path.exists(twitch_video_path + str(img_title)):
             os.makedirs(twitch_video_path + str(img_title))
 
-        #break
+        # break
 
     with open(twitch_user_out_path, "w", encoding='utf-8') as json_list:
         json.dump(data_list, json_list)
@@ -84,7 +84,8 @@ def get_video_st(data_list):
             download_url = 'https://' + data['split_front'] + '.cloudfront.net/' + data[
                 'split_author'] + '/' + twitch_720 + '/' + str(count) + '.ts'
             write_url = twitch_video_path + data['img_title'] + '//' + str(name) + '.ts'
-            ts_list.append({'download_url': download_url, 'write_url': write_url})
+            # ts_list.append({'download_url': download_url, 'write_url': write_url})
+            ts_list.append((download_url, write_url))
             count += 1
 
     with open('../../out/twitch/twitch_ts.json', "w", encoding='utf-8') as json_list:
