@@ -43,7 +43,7 @@ def main(url_list):
     for url in url_list:
         print('button url: ' + url)
         driver.get(url)
-        time.sleep(1.5)
+        time.sleep(2)
         title_link = driver.find_elements(By.CSS_SELECTOR, '.Box-sc-g0xbh4-0.bBwPjs.search-title')
         for link in title_link:
             title = link.find_element(By.TAG_NAME, 'a').get_attribute('href')
