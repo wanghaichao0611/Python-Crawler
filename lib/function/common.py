@@ -1,5 +1,6 @@
 import time
 import os
+import json
 import shutil
 import pymysql
 import lib.constant.globals as constant
@@ -58,6 +59,23 @@ def clear_files(folder_path):
         print(f"{folder_path} error：{str(e)}")
 
 
+# clear files and dirs
+def clear_files_and_dirs(folder_path):
+    try:
+        for root, dirs, files in os.walk(folder_path):
+            for file in files:
+                file_path = os.path.join(root, file)
+                os.remove(file_path)
+
+        for root, dirs, files in os.walk(folder_path):
+            for dir in dirs:
+                dir_path = os.path.join(root, dir)
+                os.rmdir(dir_path)
+        print(f"Clear files and dirs successfully: {folder_path}")
+    except Exception as e:
+        print(f"{folder_path} error：{str(e)}")
+
+
 # clear folders
 def remove_dir(dir_path):
     if os.path.isdir(dir_path):
@@ -91,3 +109,9 @@ def truncate_and_insert_info_mysql(data_list):
 # adjust screen
 def adjust_plt():
     plt.subplots_adjust(left=0.079, bottom=0.171, right=0.962, top=0.906, wspace=0.2, hspace=0.2)
+
+
+# read local json file
+def read_data_list(json_path):
+    with open(json_path, 'r') as f:
+        return json.load(f)

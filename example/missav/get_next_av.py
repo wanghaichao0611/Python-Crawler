@@ -2,6 +2,7 @@ import time
 import json
 import requests
 import os
+import lib.function.common as common
 from selenium import webdriver
 import multiprocessing as mp
 from bs4 import BeautifulSoup
@@ -13,12 +14,6 @@ av_fc2_url = os.environ.get('av_fc2_url')
 av_main_cn = os.environ.get('av_main_cn')
 av_video_path = os.environ.get('av_video_path')
 av_picture = os.environ.get('av_picture')
-
-
-# read local json file
-def read_data_list(json_path):
-    with open(json_path, 'r') as f:
-        return json.load(f)
 
 
 def download_ts(download_url, write_url):
@@ -46,7 +41,7 @@ def main():
     time.sleep(1)
 
     data_list = []
-    for data in read_data_list('../../out/missav/fc2/fc2.json'):
+    for data in common.read_data_list('../../out/missav/fc2/fc2.json'):
         driver.get(av_main_cn + data['video_id'])
         soup = BeautifulSoup(driver.page_source, 'html.parser')
         thu = str(soup.findAll('script', {'type': 'text/javascript'})[2])

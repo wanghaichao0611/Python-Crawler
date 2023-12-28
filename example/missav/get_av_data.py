@@ -1,6 +1,7 @@
 import time
 import json
 import os
+import lib.function.common as common
 from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -9,23 +10,6 @@ load_dotenv(dotenv_path="../../env/learning.env", override=True)
 
 av_fc2_url = os.environ.get('av_fc2_url')
 av_video_path = os.environ.get('av_video_path')
-
-
-# clear files and dirs
-def clear_files(folder_path):
-    try:
-        for root, dirs, files in os.walk(folder_path):
-            for file in files:
-                file_path = os.path.join(root, file)
-                os.remove(file_path)
-
-        for root, dirs, files in os.walk(folder_path):
-            for dir in dirs:
-                dir_path = os.path.join(root, dir)
-                os.rmdir(dir_path)
-        print(f"Clear files and dirs successfully: {folder_path}")
-    except Exception as e:
-        print(f"{folder_path} error：{str(e)}")
 
 
 def main():
@@ -86,5 +70,5 @@ def main():
 
 
 if __name__ == '__main__':
-    clear_files(av_video_path)
+    common.clear_files(av_video_path)
     main()
