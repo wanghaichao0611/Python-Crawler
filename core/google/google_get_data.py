@@ -18,15 +18,19 @@ google_main_url = os.environ.get('google_main_url')
 # Start Twitch
 def main():
     print('Start Twitch')
-    chrome_options = webdriver.ChromeOptions()
-    prefs = {'profile.managed_default_content_settings.images': 2}
-    chrome_options.add_experimental_option('prefs', prefs)
-    driver = webdriver.Chrome(options=chrome_options)
+    # chrome_options = webdriver.ChromeOptions()
+    # prefs = {'profile.managed_default_content_settings.images': 2}
+    # chrome_options.add_experimental_option('prefs', prefs)
+    # driver = webdriver.Chrome(options=chrome_options)
+    driver = webdriver.Chrome()
     driver.maximize_window()
     driver.get(google_main_url)
     time.sleep(3)
-    driver.execute_script(constant.PAPERS_SCROLL_JS)
-    time.sleep(3)
+    count = 0
+    while count < 5:
+        time.sleep(1)
+        driver.execute_script(constant.PAPERS_SCROLL_JS)
+        count += 1
     category_list = driver.find_elements(By.CSS_SELECTOR, '.ScCoreLink-sc-16kq0mq-0.eFqEFL.game-card__link.tw-link')
 
     url_list = set()
