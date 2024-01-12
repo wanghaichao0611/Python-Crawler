@@ -18,6 +18,7 @@ google_main_url = os.environ.get('google_main_url')
 # Start Twitch
 def main():
     print('Start Twitch')
+    session_id = common.read_session('session.txt')
     # chrome_options = webdriver.ChromeOptions()
     # prefs = {'profile.managed_default_content_settings.images': 2}
     # chrome_options.add_experimental_option('prefs', prefs)
@@ -25,7 +26,10 @@ def main():
     driver = webdriver.Chrome()
     driver.maximize_window()
     driver.get(google_main_url)
-    time.sleep(3)
+    driver.delete_all_cookies()
+    for key, morsel in common.parse_cookie(common.read_cookie('cookie.txt')).items():
+        driver.add_cookie({'name': key, 'value': morsel.value})
+        print({'name': key, 'value': morsel.value})
     count = 0
     while count < 5:
         time.sleep(1)
@@ -51,7 +55,7 @@ def main():
     for url in url_list:
         print(url)
         time.sleep(1)
-        driver.get(url + '?sort=VIEWER_COUNT')
+        driver.get(url + '?sort=VIEWER_COUNT&sessionId=' + session_id)
         time.sleep(3)
         driver.execute_script(constant.PAPERS_SCROLL_JS)
         wait = WebDriverWait(driver, 10)

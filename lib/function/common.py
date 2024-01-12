@@ -3,6 +3,7 @@ import os
 import json
 import shutil
 import pymysql
+import http.cookies
 import lib.constant.globals as constant
 import matplotlib.pyplot as plt
 from conf.settings import DATABASES
@@ -115,3 +116,26 @@ def adjust_plt():
 def read_data_list(json_path):
     with open(json_path, 'r') as f:
         return json.load(f)
+
+
+# load Cookie List-JSON
+def read_cookie_list(cookie_path):
+    with open(cookie_path, 'r') as f:
+        return json.load(f)
+
+
+# load Session
+def read_session(session_path):
+    with open(session_path, 'r') as f:
+        return f.read()
+
+# load cookie
+def read_cookie(cookie_file):
+    with open(cookie_file, 'r') as f:
+        return f.read()
+
+# load cookie
+def parse_cookie(cookie_text):
+    parser = http.cookies.SimpleCookie()
+    parser.load(cookie_text)
+    return parser
